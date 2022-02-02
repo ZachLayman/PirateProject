@@ -1,4 +1,4 @@
-package pirate.ship;
+package pirate.pillagers;
 
 import java.awt.*;
 import javax.swing.JFrame;

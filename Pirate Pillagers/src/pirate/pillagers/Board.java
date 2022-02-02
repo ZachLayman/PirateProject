@@ -27,11 +27,12 @@ private Dimension d;
 int BOARD_WIDTH=500;
 int BOARD_HEIGHT=500;
 int x = 0;
-BufferedImage img;
+BufferedImage img, canon;
 String message = "Click board to start playing PIRATE PILLAGERS";
 private Thread animator;
 Player p;
 Alien[] a = new Alien[10];
+Sprite s = new Sprite();
 
     public Board()
     {
@@ -41,6 +42,20 @@ Alien[] a = new Alien[10];
         d = new Dimension(BOARD_WIDTH, BOARD_HEIGHT);
         p = new Player(BOARD_WIDTH/2, BOARD_HEIGHT-60, 5);
         
+        try {
+            img = ImageIO.read(new File("Pirate Ship.png"));
+        }
+        catch (IOException ex){
+            System.out.println("Error with image");
+        }
+
+        try {
+            canon = ImageIO.read(new File("Ship Canon.png"));
+        }
+        catch (IOException ex){
+            System.out.println("Error with image 2");
+        }
+
         int ax = 10;
         int ay = 10;
         for (int i=0; i<a.length; i++) {
@@ -69,17 +84,28 @@ Alien[] a = new Alien[10];
     g.fillRect(0, 0, d.width, d.height);
 //g.fillOval(x,y,r,r);
     //for player
-    g.setColor(Color.blue);
-    g.fillRect(p.x, p.y, 20, 20);
+    //g.setColor(Color.blue);
+   //g.fillRect(p.x, p.y, 20, 20);
+
+       //s.setVisible(false);
+       if (s.isVisible() == true){
+        g.drawImage(img, p.x, 420, 40, 40, this);
+    }
     
-    if (p.moveRight == true)
-        p.x += p.speed;
-    if (p.moveLeft == true)
-        p.x -= p.speed;
-    
+    if (p.moveRight == true && p.x <= 441) //The extra conditions make it to where the player doesn't move off the screen
+    p.x += p.speed;
+if (p.moveLeft == true && p.x >= 1)
+    p.x -= p.speed;
+if (p.shoot == true && s.isVisible()){
+    g.drawImage(canon, p.x, 420, 40, 40, this);
+    g.setColor(Color.BLACK);
+    g.fillOval(p.x + 14, p.bulletLocationY, 10, 10);
+    p.bulletLocationY -= 10;
+}
     moveAliens();
     
     for (int i=0; i<a.length; i++) {
+        g.setColor(Color.RED); 
         g.fillRect(a[i].x, a[i].y, 30, 30);
         }
     
@@ -141,6 +167,13 @@ public void keyReleased(KeyEvent e) {
      int key = e.getKeyCode();
      p.moveRight = false;
      p.moveLeft = false;
+
+     if (p.bulletLocationY <= -5){
+        p.shoot = false; 
+        p.bulletLocationY = p.y + 5;
+         //System.out.println(p.bulletLocationY);
+     }
+
 }
 
 public void keyPressed(KeyEvent e) {
@@ -153,12 +186,15 @@ public void keyPressed(KeyEvent e) {
         if(key==37){
           p.moveLeft = true;
         }
-       
+        if (key == 32){
+            p.shoot = true;
+        }
+        
+        repaint();
 
 }
 
 }
-
 
 
 

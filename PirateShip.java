@@ -102,4 +102,4 @@ public class PirateShip extends Frame implements KeyListener{
        r.setVisible(true);
     }
     
-}
+} 
