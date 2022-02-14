@@ -1,6 +1,6 @@
 # PirateProject
 
-Project for Oakland OU.
+Project for Oakland OU, CSI 2999
 
 We have decided to make a game that is a homage to classic Space Invaders. 
 Our current working title is Pirate Pillagers. 
