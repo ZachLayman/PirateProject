@@ -16,6 +16,11 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Board extends JPanel implements Runnable {
 
@@ -25,6 +30,8 @@ public class Board extends JPanel implements Runnable {
     private Integer lives;
     private PlayerCharacter player;
     private EnemyMovement enemyWave;
+    private GameTimer timer; //for timer
+    private static Sound bgMusic; 
     
 Board() {
 
@@ -77,6 +84,12 @@ Board() {
     @Override
     public void run() {
 
+        try {
+            bgMusic = new Sound();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            Logger.getLogger(Board.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         long beforeTime, timeDiff, sleep;
 
         beforeTime = System.currentTimeMillis();
@@ -112,7 +125,10 @@ Board() {
         
         g.drawString("Enemies Remaining: " + enemyWave.getNumberOfEnemies().toString(), 20, 20);
 
-        g.drawString("PIRATE PILLAGERS                                Lives: " + lives.toString(), BOARD_WIDTH - 370, 20);
+        g.drawString("Timer: " + timer.getMinutes() + ":" + timer.getSeconds(), 200, 20); //Printing the timer on the board
+
+        g.drawString("PIRATE PILLAGERS                        Lives: " + lives.toString(), BOARD_WIDTH - 340, 20); //Originally BW-370
+        //had to edit oringinal placement to fit timer 
         
 
         g.setColor(Color.WHITE);
@@ -211,6 +227,9 @@ Board() {
         g.setColor(Color.BLACK);
         g.setFont(font);
         g.drawString(message, (BOARD_WIDTH - fonts.stringWidth(message))/2, BOARD_HEIGHT/2);
+        //Display player time at end of game
+        g.drawString("Your time: " + timer.getMinutes() + ":" + timer.getSeconds(), 
+                (BOARD_WIDTH - fonts.stringWidth(message))/2, (BOARD_HEIGHT/2) + 25);
     }
 
     private class Key extends KeyAdapter {
