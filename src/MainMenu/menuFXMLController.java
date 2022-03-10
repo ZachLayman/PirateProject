@@ -1,4 +1,4 @@
-package mainmenu;
+package MainMenu;
 import GameFunctions.Main;
 
 import java.io.IOException;

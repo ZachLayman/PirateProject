@@ -37,7 +37,7 @@ Board() {
 
         inTheGame = true;
         lives = 3; //can make it 5 lives if it gets too hard 
-
+        timer = new GameTimer();
         player = new PlayerCharacter(START_X, START_Y);
         enemyWave = new EnemyMovement();
 
@@ -147,7 +147,7 @@ Board() {
 
     private void animationCycle() {
         if(enemyWave.getNumberOfEnemies() == 0) {
-            
+            timer.stopTimer();
             inTheGame = false;
             message = "You Won. Man you got so lucky.";
         }
@@ -159,12 +159,14 @@ Board() {
             if(lives != 0) player.revive(); //when you dont lose, you respawn 
             
             else {
+                timer.stopTimer();
                 inTheGame = false;
                 message = "Game Over. Man you suck, get better."; //idk why i said this
             }
         }
 
         if(enemyWave.reachedTheGround()) {
+            timer.stopTimer();
             inTheGame=false;
             message = "Game Over. Man you suck, get better.";
         }
