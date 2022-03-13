@@ -1,33 +1,26 @@
 package GameFunctions;
 
 import java.io.*;
-import sun.audio.*;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.*;
-import java.awt.*;
+import javax.sound.sampled.*;
 
-public class Sound extends Board { //CANT FIGURE IT OUT YET SORRY
+public class Sound extends Board { ////Right now music plays during the main game and game over screen.
     
-    public static void main (String[] args) { 
-        Sound("Salty_Ditty.wav");
-    }
- 
-    public static void Sound (String filepath) {
-        InputStream music;
+    public Sound () throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        File file = new File("Assets//Salty_Ditty.wav"); 
+        //in NetBeans, the filepath was just "Salty_Ditty.wav" to get it to work because of how the files were placed in that version of the project.
+
         try {
-            music = new FileInputStream(new File(filepath));
-            AudioStream audios = new AudioStream (music);
-            AudioPlayer.player.start(audios);
+        AudioInputStream music = AudioSystem.getAudioInputStream(file);
+        Clip clip = AudioSystem.getClip();
+        clip.open(music);
+        clip.start();
         }
         catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-            
+            e.printStackTrace();
+        }      
     }
 }
