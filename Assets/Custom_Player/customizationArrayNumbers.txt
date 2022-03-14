@@ -1,0 +1,43 @@
+JLabel[] topShadows; //4
+JLabel[] shipDesigns; //4
+JLabel[] sailDesigns; //16
+
+====SHADOWS FOR SHIP DESIGNS====
+0-pirate shadow
+1-viking shadow
+2-fantasy shadow
+3-modern shadow
+
+====SHIP DESIGNS====
+0-pirate ship
+1-viking ship
+2-fantasy ship
+3-modern ship
+
+====SAIL DESIGNS====
+0- pirate skull sail
+1- pirate cross sail
+2- pirate flower sail
+3- pirate celestial sail
+4- pirate solid sail
+
+5- viking dragon sail
+6- viking striped sail
+7- viking triforce sail
+8- viking ??? sail
+9- viking solid sail
+
+10- fantasy ??? sail
+11- fantasy ??? sail
+12- fantasy ??? sail
+13- fantasy ??? sail
+14- fantasy solid sail
+
+15- modern ??? sail
+16- modern ??? sail
+17- modern ??? sail
+18- modern ??? sail
+19- modern solid sail
+
+========================
+SAIL NUM = (SHIP SLIDER * 5) + SAIL SLIDER

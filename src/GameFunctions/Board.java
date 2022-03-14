@@ -16,6 +16,11 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Board extends JPanel implements Runnable {
 
@@ -26,12 +31,14 @@ public class Board extends JPanel implements Runnable {
     private PlayerCharacter player;
     private EnemyMovement enemyWave;
     private int gameScore = 0;
+    private GameTimer timer; //for timer
+    private static Sound bgMusic; 
     
 Board() {
 
         inTheGame = true;
         lives = 3; //can make it 5 lives if it gets too hard 
-
+        timer = new GameTimer();
         player = new PlayerCharacter(START_X, START_Y);
         enemyWave = new EnemyMovement();
 
@@ -78,6 +85,12 @@ Board() {
     @Override
     public void run() {
 
+        try {
+            bgMusic = new Sound();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            Logger.getLogger(Board.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         long beforeTime, timeDiff, sleep;
 
         beforeTime = System.currentTimeMillis();
@@ -113,8 +126,11 @@ Board() {
         
         g.drawString("Enemies Remaining: " + enemyWave.getNumberOfEnemies().toString(), 20, 20);
 
-        g.drawString("PIRATE PILLAGERS                                Lives: " + lives.toString(), BOARD_WIDTH - 370, 20);
         g.drawString("                                                Score: " + gameScore, BOARD_WIDTH - 295, 40);
+        g.drawString("Timer: " + timer.getMinutes() + ":" + timer.getSeconds(), 200, 20); //Printing the timer on the board
+
+        g.drawString("PIRATE PILLAGERS                        Lives: " + lives.toString(), BOARD_WIDTH - 340, 20); //Originally BW-370
+        //had to edit oringinal placement to fit timer 
         
 
         g.setColor(Color.WHITE);
@@ -133,7 +149,7 @@ Board() {
 
     private void animationCycle() {
         if(enemyWave.getNumberOfEnemies() == 0) {
-            
+            timer.stopTimer();
             inTheGame = false;
             message = "You Won. Man you got so lucky.";
         }
@@ -145,12 +161,14 @@ Board() {
             if(lives != 0) player.revive(); //when you dont lose, you respawn 
             
             else {
+                timer.stopTimer();
                 inTheGame = false;
                 message = "Game Over. Man you suck, get better."; //idk why i said this
             }
         }
 
         if(enemyWave.reachedTheGround()) {
+            timer.stopTimer();
             inTheGame=false;
             message = "Game Over. Man you suck, get better.";
         }
@@ -214,7 +232,10 @@ Board() {
         g.setColor(Color.BLACK);
         g.setFont(font);
         g.drawString(message, (BOARD_WIDTH - fonts.stringWidth(message))/2, BOARD_HEIGHT/2);
-        g.drawString("Your score: " + gameScore, (BOARD_WIDTH - fonts.stringWidth(message))/2, BOARD_HEIGHT/2 + 40);
+        g.drawString("Your score: " + gameScore, (BOARD_WIDTH - fonts.stringWidth(message))/2, BOARD_HEIGHT/2 + 50);
+        //Display player time at end of game
+        g.drawString("Your time: " + timer.getMinutes() + ":" + timer.getSeconds(), 
+                (BOARD_WIDTH - fonts.stringWidth(message))/2, (BOARD_HEIGHT/2) + 25);
     }
 
     private class Key extends KeyAdapter {
