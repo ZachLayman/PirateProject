@@ -21,7 +21,7 @@
             <Label id="main-title" alignment="BOTTOM_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="640.0" styleClass="title-section" stylesheets="@MainMenuFXML.css" text="Pirate Pillagers" textAlignment="CENTER">
       </Label>
             <Button id="start-button" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startGame" prefHeight="160.0" prefWidth="640.0" styleClass="button-section" text="Start" textAlignment="CENTER" GridPane.rowIndex="1" />
-            <Button id="credits-button" alignment="CENTER" mnemonicParsing="false" text="Leaderboard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Button id="credits-button" alignment="CENTER" mnemonicParsing="false" onAction="#switchToLeaderboard" text="Leaderboard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <Button id="credits-button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToCredits" stylesheets="@MainMenuFXML.css" text="Credits" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
       </Button>
       <Button id="credits-button" mnemonicParsing="false" onAction="#switchToHelp" stylesheets="@MainMenuFXML.css" text="Help" GridPane.halignment="CENTER" GridPane.rowIndex="2" />

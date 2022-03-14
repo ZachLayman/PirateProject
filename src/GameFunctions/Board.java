@@ -30,6 +30,7 @@ public class Board extends JPanel implements Runnable {
     private Integer lives;
     private PlayerCharacter player;
     private EnemyMovement enemyWave;
+    private int gameScore = 0;
     private GameTimer timer; //for timer
     private static Sound bgMusic; 
     
@@ -125,6 +126,7 @@ Board() {
         
         g.drawString("Enemies Remaining: " + enemyWave.getNumberOfEnemies().toString(), 20, 20);
 
+        g.drawString("                                                Score: " + gameScore, BOARD_WIDTH - 295, 40);
         g.drawString("Timer: " + timer.getMinutes() + ":" + timer.getSeconds(), 200, 20); //Printing the timer on the board
 
         g.drawString("PIRATE PILLAGERS                        Lives: " + lives.toString(), BOARD_WIDTH - 340, 20); //Originally BW-370
@@ -197,6 +199,7 @@ Board() {
                     enemy.explosion();
                     enemyWave.decreaseNumberOfEnemies();
                     player.getM().die();
+                    gameScore = gameScore + 10;
                 }
         }
     }
@@ -229,6 +232,7 @@ Board() {
         g.setColor(Color.BLACK);
         g.setFont(font);
         g.drawString(message, (BOARD_WIDTH - fonts.stringWidth(message))/2, BOARD_HEIGHT/2);
+        g.drawString("Your score: " + gameScore, (BOARD_WIDTH - fonts.stringWidth(message))/2, BOARD_HEIGHT/2 + 50);
         //Display player time at end of game
         g.drawString("Your time: " + timer.getMinutes() + ":" + timer.getSeconds(), 
                 (BOARD_WIDTH - fonts.stringWidth(message))/2, (BOARD_HEIGHT/2) + 25);
