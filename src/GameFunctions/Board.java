@@ -114,7 +114,7 @@ Board() {
         g.drawString("Enemies Remaining: " + enemyWave.getNumberOfEnemies().toString(), 20, 20);
 
         g.drawString("PIRATE PILLAGERS                                Lives: " + lives.toString(), BOARD_WIDTH - 370, 20);
-        g.drawString("                                                Score: " + gameScore, BOARD_WIDTH - 370, 20);
+        g.drawString("                                                Score: " + gameScore, BOARD_WIDTH - 295, 40);
         
 
         g.setColor(Color.WHITE);
@@ -135,7 +135,7 @@ Board() {
         if(enemyWave.getNumberOfEnemies() == 0) {
             
             inTheGame = false;
-            message = "You Won. Man you got so lucky.\nScore: " + gameScore;
+            message = "You Won. Man you got so lucky.";
         }
 
         if(player.isDying()) { 
@@ -146,7 +146,7 @@ Board() {
             
             else {
                 inTheGame = false;
-                message = "Game Over. Man you suck, get better.\nScore: " + gameScore; //idk why i said this
+                message = "Game Over. Man you suck, get better."; //idk why i said this
             }
         }
 
@@ -214,6 +214,7 @@ Board() {
         g.setColor(Color.BLACK);
         g.setFont(font);
         g.drawString(message, (BOARD_WIDTH - fonts.stringWidth(message))/2, BOARD_HEIGHT/2);
+        g.drawString("Your score: " + gameScore, (BOARD_WIDTH - fonts.stringWidth(message))/2, BOARD_HEIGHT/2 + 40);
     }
 
     private class Key extends KeyAdapter {

@@ -21,7 +21,7 @@ public class Enemy extends MovingObject {
     Enemy(int x, int y) {
         super(x, y);
         rand = new Random();
-        loadImage("Assets//Kraken.gif");
+        loadImage("Assets//Kraken-2.png");
         width=ENEMY_WIDTH;
         height=ENEMY_HEIGHT;
         dx=1;
