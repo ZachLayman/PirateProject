@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class Variables {     
     
-    public static final int BOARD_HEIGHT = 499; //i only used a lot of 9s cus its my fav number lol 
-    public static final int BOARD_WIDTH = 649;
+    public static final int BOARD_HEIGHT = 480
+    public static final int BOARD_WIDTH = 640;
     
     public static final int PLAYER_SPEED = 5;
     public static final int PLAYER_WIDTH = 40;
