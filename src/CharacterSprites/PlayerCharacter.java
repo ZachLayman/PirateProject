@@ -11,9 +11,9 @@ public class PlayerCharacter extends MovingObject {
 
     private Cannonball m;
 
-    public PlayerCharacter (int x, int y) {
+    public PlayerCharacter(int x, int y) {
         super(x, y);
-        loadImage("Assets//User Ship.png"); //Jenny's PNG 
+        loadImage("Saves//userShip.png");
         width = PLAYER_WIDTH;
         height = PLAYER_HEIGHT;
         m = new Cannonball(0, 0);
@@ -25,13 +25,13 @@ public class PlayerCharacter extends MovingObject {
     }
 
     public void revive() {
-        loadImage("Assets//User Ship.png");
+        loadImage("Saves//userShip.png");
         setDying(false);
-        x=BOARD_WIDTH/2;
+        x = BOARD_WIDTH / 2;
     }
 
     public void cannonMove() {
-        if(m.isVisible()) {
+        if (m.isVisible()) {
             m.move();
         }
     }
@@ -46,9 +46,9 @@ public class PlayerCharacter extends MovingObject {
             dx = PLAYER_SPEED;
         }
         if (key == KeyEvent.VK_SPACE) {
-            if(!m.alive) {
+            if (!m.alive) {
                 m.alive = true;
-                m.x = this.x + PLAYER_WIDTH/2;
+                m.x = this.x + PLAYER_WIDTH / 2;
                 m.y = this.y;
             }
         }
@@ -57,19 +57,19 @@ public class PlayerCharacter extends MovingObject {
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if(key == KeyEvent.VK_LEFT) {
+        if (key == KeyEvent.VK_LEFT) {
             dx = 0;
         }
-        if(key == KeyEvent.VK_RIGHT) {
+        if (key == KeyEvent.VK_RIGHT) {
             dx = 0;
         }
     }
 
     @Override
     public void move() {
-        if(x > BOARD_WIDTH-PLAYER_WIDTH)
-            x = BOARD_WIDTH-PLAYER_WIDTH;
-        else if(x < 0)
+        if (x > BOARD_WIDTH - PLAYER_WIDTH)
+            x = BOARD_WIDTH - PLAYER_WIDTH;
+        else if (x < 0)
             x = 0;
         else
             super.move();
