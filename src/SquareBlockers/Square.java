@@ -22,7 +22,7 @@ class Square extends Rectangle  {
 
     void draw(Graphics g) {
         
-        g.setColor(Color.PINK);
+        g.setColor(new Color(209, 197, 159));
         g.fillRect(x, y, width, height);
     }
 }
