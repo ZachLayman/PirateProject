@@ -49,7 +49,7 @@ Board() {
 
         addKeyListener(new Key());     //for Key events
         setFocusable(true);
-        setBackground(Color.CYAN); //in place of a water background 
+        setBackground(new Color (0,200,214)); //in place of a water background 
        
 }
 
