@@ -13,7 +13,8 @@ public class PlayerCharacter extends MovingObject {
 
     public PlayerCharacter (int x, int y) {
         super(x, y);
-        loadImage("Assets//User Ship.png"); //Jenny's PNG 
+        loadImage("Assets//User Ship.png"); 
+        //loadImage("Saves//userShip.png"); if user customization works
         width = PLAYER_WIDTH;
         height = PLAYER_HEIGHT;
         m = new Cannonball(0, 0);
@@ -26,6 +27,7 @@ public class PlayerCharacter extends MovingObject {
 
     public void revive() {
         loadImage("Assets//User Ship.png");
+         //loadImage("Saves//userShip.png"); if user customization works
         setDying(false);
         x=BOARD_WIDTH/2;
     }
