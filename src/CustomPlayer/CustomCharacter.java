@@ -487,6 +487,10 @@ public class CustomCharacter extends JFrame {
         }
         // ======================================================================================
         // call method to start game
-        
+        startGame();
+    }
+
+    public void startGame(){
+        new Main();
     }
 }
