@@ -24,8 +24,8 @@ public class Variables {
     public static final int CANNON_HEIGHT = 10;
     
     public static final int BOMB_SPEED = 3;
-    public static final int BOMB_WIDTH = 4;
-    public static final int BOMB_HEIGHT = 12;
+    public static final int BOMB_WIDTH = 5;
+    public static final int BOMB_HEIGHT = 6;
 
     public static final int START_X = 300;
     public static final int START_Y = 360;
