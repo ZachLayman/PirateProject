@@ -1,5 +1,6 @@
 package MainMenu;
 import GameFunctions.Main;
+import CustomPlayer.CustomCharacter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -70,7 +71,8 @@ public class menuFXMLController implements Initializable {
     
     public void startGame (ActionEvent event) throws IOException {
         ((Stage)(((Node)event.getSource()).getScene().getWindow())).close();
-        new Main();
+        new CustomCharacter();
+        //new Main(); //Uncomment this line and comment new CustomCharacter to take out customization
     }
     
     @FXML

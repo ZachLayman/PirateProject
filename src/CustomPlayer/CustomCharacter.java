@@ -1,5 +1,7 @@
 package CustomPlayer;
 
+import GameFunctions.Main;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.FileWriter;
@@ -67,11 +69,11 @@ public class CustomCharacter extends JFrame {
         setSize(640, 480);
         setTitle("Custom Your Character");
         this.setBackground(Color.yellow);
-        this.setIconImage(new ImageIcon("Assests//ship_icon.png").getImage());
+        this.setIconImage(new ImageIcon("Assets//ship_icon.png").getImage());
         this.setLayout(null);
 
         // set background image
-        this.setContentPane(new JLabel(new ImageIcon("Assests//Custom_Player//Custom_Background.png")));
+        this.setContentPane(new JLabel(new ImageIcon("Assets//Custom_Player//Custom_Background.png")));
 
         // make frame not resizeable
         this.setResizable(false);
@@ -178,10 +180,10 @@ public class CustomCharacter extends JFrame {
         sailNum = 0;
 
         // set file paths for solid sail images
-        pSailPath = "Assests//Custom_Player//Sails//PirateSolidSail.png";
-        vSailPath = "Assests//Custom_Player//Sails//ComingSoon.png";
-        fSailPath = "Assests//Custom_Player//Sails//ComingSoon.png";
-        mSailPath = "Assests//Custom_Player//Sails//ComingSoon.png";
+        pSailPath = "Assets//Custom_Player//Sails//PirateSolidSail.png";
+        vSailPath = "Assets//Custom_Player//Sails//ComingSoon.png";
+        fSailPath = "Assets//Custom_Player//Sails//ComingSoon.png";
+        mSailPath = "Assets//Custom_Player//Sails//ComingSoon.png";
 
         // initialize layered pane
         boatCanvas = new JLayeredPane();
@@ -280,7 +282,7 @@ public class CustomCharacter extends JFrame {
                 Object[] options = { "Aye, Aye", "Nay" };
 
                 // add image
-                ImageIcon image = new ImageIcon("Assests//ship_icon.png");
+                ImageIcon image = new ImageIcon("Assets//ship_icon.png");
 
                 int input = JOptionPane.showOptionDialog(null, dialog, null,
                         JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, image, options, options[0]);
@@ -485,6 +487,10 @@ public class CustomCharacter extends JFrame {
         }
         // ======================================================================================
         // call method to start game
-        
+        startGame();
+    }
+
+    public void startGame(){
+        new Main();
     }
 }
