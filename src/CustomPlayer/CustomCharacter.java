@@ -17,7 +17,8 @@ import javax.swing.event.*;
 //   and color of them. Also asks user for their name 
 //   and name of their ship.
 //==========================================================
-public class CustomCharacter extends JFrame {
+public class CustomCharacter extends JFrame 
+{
     // VARIABLES===================================
     // Buttons
     JButton menu, done;
@@ -116,16 +117,19 @@ public class CustomCharacter extends JFrame {
         menu.setForeground(myWhite);
         menu.setFocusPainted(false);
         menu.setBorder(BorderFactory.createRaisedBevelBorder());
+        menu.setFont(new Font("Minecraft", Font.BOLD, 15));
 
         done.setBackground(myBlue);
         done.setForeground(myWhite);
         done.setFocusPainted(false);
         done.setBorder(BorderFactory.createRaisedBevelBorder());
+        done.setFont(new Font("Minecraft", Font.BOLD, 15));
 
         bColorSail.setBackground(myBlue);
         bColorSail.setForeground(myWhite);
         bColorSail.setFocusPainted(false);
         bColorSail.setBorder(BorderFactory.createRaisedBevelBorder());
+        bColorSail.setFont(new Font("Minecraft", Font.BOLD, 15));
 
         // set size and add buttons to frame using addToFrame method
         addToFrame(menu, x = 0, y = 0, width = 120, height = 40);
@@ -485,11 +489,41 @@ public class CustomCharacter extends JFrame {
             System.out.println("Could not Save Image.");
             System.out.println(e);
         }
-        // ======================================================================================
-        // call method to start game
+
+        //save corresponding projectile per ship design
+        BufferedImage userProjectile;
+        switch (shipNum) {
+            case 0:
+                userProjectile = Art4Boat.pirateFire;
+                break;
+            case 1:
+                userProjectile = Art4Boat.vikingFire;
+                break;
+            case 2:
+                userProjectile = Art4Boat.fantasyFire;
+                break;
+            case 3:
+                userProjectile = Art4Boat.modernFire;
+                break;
+            default:
+                userProjectile = Art4Boat.pirateFire;
+                break;
+        }
+
+        try {
+            ImageIO.write(userProjectile, "png", new File("Saves//userProjectile.png"));
+            System.out.println("Image successfully updated");
+        } catch (IOException p) {
+            System.out.println("Could not save projectile image.");
+        }
+
+    // ==========================================================
+    // call method to start main game
+    // ==========================================================
         startGame();
     }
-
+    
+    //start main game
     public void startGame(){
         new Main();
     }
