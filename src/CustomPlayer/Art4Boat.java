@@ -43,7 +43,7 @@ public class Art4Boat {
             sailDesigns[1] = ImageIO.read(new File("Assets//Custom_Player//Sails//ComingSoon.png"));
             sailDesigns[2] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateFlowerSail.png"));
             sailDesigns[3] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateCelestialSail.png"));
-            sailDesigns[4] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateSolidSail2.png")); 
+            sailDesigns[4] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateSolidSail.png")); 
             
 
             // load Viking Ship Sail Designs
