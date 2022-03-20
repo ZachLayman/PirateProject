@@ -447,6 +447,10 @@ public class CustomCharacter extends JFrame {
         else
             userColor = null;
 
+        //set variable to typed user responses
+        GameFunctions.Variables.USERNAME= tUserName.getText();
+        GameFunctions.Variables.USERNAME= tUserShip.getText();
+
         // grab user design choices and compile the save contents
         saveContents = tUserName.getText() + newLine +
                 tUserShip.getText() + newLine +
