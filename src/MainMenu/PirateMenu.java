@@ -8,6 +8,7 @@ import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -23,7 +24,8 @@ public class PirateMenu extends Application {
         
         scene.getStylesheets().add(getClass().
             getResource("MainMenuFXML.css").toExternalForm());
-        
+        stage.setTitle("Pirate Pillagers");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("ship_icon.png")));
         stage.setScene(scene);
         stage.show();
     }
