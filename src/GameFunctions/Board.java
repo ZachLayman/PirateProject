@@ -152,7 +152,7 @@ Board() {
             timer.stopTimer();
             inTheGame = false;
             message = "Blow me down Cap'n " + Variables.USERNAME + 
-            " ye're amazin'. Simply a fantastic maiden voyage fer the " +
+            ", ye're amazin'. Simply a fantastic maiden voyage fer the " +
             Variables.USERSHIP;
         }
 
@@ -166,7 +166,7 @@ Board() {
                 timer.stopTimer();
                 inTheGame = false;
                 message = "Ye suck Cap'n " + Variables.USERNAME +
-                " The " + Variables.USERSHIP + " WAS a beaut.";
+                ". The " + Variables.USERSHIP + " WAS a beaut.";
             }
         }
 
@@ -174,7 +174,7 @@ Board() {
             timer.stopTimer();
             inTheGame=false;
             message = "Ye suck Cap'n " + Variables.USERNAME +
-                " The " + Variables.USERSHIP + " WAS a beaut.";
+                ". The " + Variables.USERSHIP + " WAS a beaut.";
         }
 
         player.move();
