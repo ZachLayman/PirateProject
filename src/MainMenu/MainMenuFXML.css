@@ -4,7 +4,7 @@
 }
 
 .grid {
-    -fx-background-image: url('pirateBackground.png')
+    -fx-background-image: url('blurredWater.png')
 }
 
 .mainFxmlClass {
@@ -22,22 +22,48 @@
         -fx-font-family: Ponderosa;
         -fx-halignment: center;
     }
-    .button-section {
-
-    }
     #main-title {
         -fx-font-family: Ponderosa;
-        -fx-font-size: 40;
+        -fx-font-size: 60;
     }
     #credits-button {
         -fx-font-size: 15;
         -fx-font-family: Ponderosa;
         -fx-background-color: transparent;
+        -fx-background-color: rgb(125, 125, 125);
+        -fx-effect: dropshadow(one-pass-box, rgba(95, 95, 95), 3.5, 1, -2, -2);
     }
-    #start-button {
-        -fx-font-size: 40;
+    #credits-button:hover {
+        -fx-font-size: 15;
         -fx-font-family: Ponderosa;
         -fx-background-color: transparent;
+        -fx-background-color: rgb(155, 155, 155);
+        -fx-effect: dropshadow(one-pass-box, rgb(125, 125, 125), 3.5, 1, -2, -2);
+    }
+    #credits-button:pressed {
+        -fx-font-size: 15;
+        -fx-font-family: Ponderosa;
+        -fx-background-color: transparent;
+        -fx-background-color: rgb(185, 185, 185);
+        -fx-effect: dropshadow(one-pass-box, rgb(155, 155, 155), 3.5, 1, -2, -2);
+    }
+    #start-button {
+        -fx-background-color: rgb(125, 125, 125);
+        -fx-effect: dropshadow(one-pass-box, rgb(95, 95, 95), 8, 1, -2, -2);
+        -fx-font-size: 40;
+        -fx-font-family: Ponderosa;
+    }
+    #start-button:hover {
+        -fx-background-color: rgb(155, 155, 155);
+        -fx-effect: dropshadow(one-pass-box, rgb(125, 125, 125), 8, 1, -2, -2);
+        -fx-font-size: 40;
+        -fx-font-family: Ponderosa;
+    }
+    #start-button:pressed {
+        -fx-background-color: rgb(185, 185, 185);
+        -fx-effect: dropshadow(one-pass-box, rgb(155, 155, 155), 8, 1, -2, -2);
+        -fx-font-size: 40;
+        -fx-font-family: Ponderosa;
     }
     #credits-text {
         -fx-font-size: 20;
