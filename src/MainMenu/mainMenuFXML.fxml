@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -18,10 +19,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label id="main-title" alignment="BOTTOM_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="640.0" styleClass="title-section" stylesheets="@MainMenuFXML.css" text="Pirate Pillagers" textAlignment="CENTER">
-      </Label>
-            <Button id="start-button" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startGame" prefHeight="160.0" prefWidth="640.0" styleClass="button-section" text="Start" textAlignment="CENTER" GridPane.rowIndex="1" />
-            <Button id="credits-button" alignment="CENTER" mnemonicParsing="false" onAction="#switchToLeaderboard" text="Leaderboard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label id="main-title" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="640.0" styleClass="title-section" stylesheets="@MainMenuFXML.css" text="Pirate&#10;Pillagers" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowSpan="2147483647">
+         <GridPane.margin>
+            <Insets bottom="170.0" />
+         </GridPane.margin></Label>
+            <Button id="start-button" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startGame" stylesheets="@MainMenuFXML.css" text="Start" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+            <Button id="credits-button" alignment="CENTER" mnemonicParsing="false" onAction="#switchToLeaderboard" stylesheets="@MainMenuFXML.css" text="Leaderboard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <Button id="credits-button" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToCredits" stylesheets="@MainMenuFXML.css" text="Credits" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
       </Button>
       <Button id="credits-button" mnemonicParsing="false" onAction="#switchToHelp" stylesheets="@MainMenuFXML.css" text="Help" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
