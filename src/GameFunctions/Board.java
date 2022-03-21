@@ -133,8 +133,8 @@ Board() {
         //had to edit oringinal placement to fit timer 
         
 
-        g.setColor(Color.WHITE);
-        g.drawLine(0, GROUND, BOARD_WIDTH, GROUND);
+        //g.setColor(Color.WHITE);
+        //g.drawLine(0, GROUND, BOARD_WIDTH, GROUND);
 
         player.draw(g, this);
         if (player.getM().isVisible())
