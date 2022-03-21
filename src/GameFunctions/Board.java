@@ -151,7 +151,9 @@ Board() {
         if(enemyWave.getNumberOfEnemies() == 0) {
             timer.stopTimer();
             inTheGame = false;
-            message = "You Won. Man you got so lucky.";
+            message = "Blow me down Cap'n " + Variables.USERNAME + 
+            " ye're amazin'. Simply a fantastic maiden voyage fer the " +
+            Variables.USERSHIP;
         }
 
         if(player.isDying()) { 
@@ -163,14 +165,16 @@ Board() {
             else {
                 timer.stopTimer();
                 inTheGame = false;
-                message = "Game Over. Man you suck, get better."; //idk why i said this
+                message = "Ye suck Cap'n " + Variables.USERNAME +
+                " The " + Variables.USERSHIP + " WAS a beaut.";
             }
         }
 
         if(enemyWave.reachedTheGround()) {
             timer.stopTimer();
             inTheGame=false;
-            message = "Game Over. Man you suck, get better.";
+            message = "Ye suck Cap'n " + Variables.USERNAME +
+                " The " + Variables.USERSHIP + " WAS a beaut.";
         }
 
         player.move();

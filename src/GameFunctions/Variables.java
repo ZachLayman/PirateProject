@@ -36,5 +36,7 @@ public class Variables {
     public static final int SQUARE_SIZE = 10;
     
     public static final int DELAYTIME = 18;
-        
+
+    public static  String USERNAME;
+    public static  String USERSHIP;
 }
