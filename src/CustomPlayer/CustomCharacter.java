@@ -67,7 +67,7 @@ public class CustomCharacter extends JFrame {
         // FRAME=====================================
         // design
         setSize(640, 480);
-        setTitle("Custom Your Character");
+        setTitle("Customize Your Character");
         this.setBackground(Color.yellow);
         this.setIconImage(new ImageIcon("Assets//ship_icon.png").getImage());
         this.setLayout(null);
