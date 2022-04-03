@@ -66,5 +66,60 @@ public class Leaderboard {
         }
     }
 
+    public Leaderboard maximum (Leaderboard root) {
+        while (root.rightChild != null) {
+            root = root.rightChild;
+        }
+        return root;
+    }
+
+    public Leaderboard minimum (Leaderboard root) {
+        while (root.leftChild != null) {
+            root = root.leftChild;
+        }
+        return root;
+    }
+
+    public Leaderboard predecessor (Leaderboard root) {
+        if (root.rightChild != null) {
+            return minimum(root);
+        }
+        Leaderboard y = root.parent;
+        while (y != null && root == y.rightChild) {
+            root = y;
+            y = y.parent;
+        }
+        return y;
+    }
+
+    public Leaderboard revOrderWalk (Leaderboard currentNode) {
+        if (currentNode == null) {
+            return currentNode;
+        }
+
+        revOrderWalk(currentNode.leftChild);
+        System.out.println(currentNode.playerName);
+        revOrderWalk(currentNode.rightChild);
+
+        return currentNode;
+    }
+
+    /*public static void main(String[] args) {
+        Leaderboard root = new Leaderboard(null, null, null, null, -5);
+        Leaderboard p1 = new Leaderboard ("Dom", null, null, null, 10);
+        Leaderboard p2 = new Leaderboard ("Bill", null, null, null, 20);
+        Leaderboard p3 = new Leaderboard ("John", null, null, null, 5);
+        Leaderboard p4 = new Leaderboard ("Will", null, null, null, 40);
+        Leaderboard p5 = new Leaderboard ("Mike", null, null, null, 2);
+
+        root.insertNode(root, p1);
+        root.insertNode(root, p2);
+        root.insertNode(root, p3);
+        root.insertNode(root, p4);
+        root.insertNode(root, p5);
+
+        root.revOrderWalk(root);
+
+    }*/
     
 }
