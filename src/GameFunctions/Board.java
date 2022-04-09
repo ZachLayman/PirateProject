@@ -32,7 +32,7 @@ public class Board extends JPanel implements Runnable {
     private EnemyMovement enemyWave;
     private int gameScore = 0;
     private GameTimer timer; //for timer
-    private static Sound bgMusic; 
+    public static Sound bgMusic; //This variable stays public do not change
     
 Board() {
 
@@ -91,6 +91,8 @@ Board() {
             Logger.getLogger(Board.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        player.initializeFX();
+
         long beforeTime, timeDiff, sleep;
 
         beforeTime = System.currentTimeMillis();
@@ -126,10 +128,10 @@ Board() {
         
         g.drawString("Enemies Remaining: " + enemyWave.getNumberOfEnemies().toString(), 20, 20);
 
-        g.drawString("                                                Score: " + gameScore, BOARD_WIDTH - 295, 40);
+        g.drawString("                                                Score: " + gameScore, BOARD_WIDTH - 285, 40);
         g.drawString("Timer: " + timer.getMinutes() + ":" + timer.getSeconds(), 200, 20); //Printing the timer on the board
 
-        g.drawString("PIRATE PILLAGERS                        Lives: " + lives.toString(), BOARD_WIDTH - 340, 20); //Originally BW-370
+        g.drawString("PIRATE PILLAGERS                        Lives: " + lives.toString(), BOARD_WIDTH - 330, 20); //Originally BW-370
         //had to edit oringinal placement to fit timer 
         
 
@@ -158,9 +160,13 @@ Board() {
             
             lives--; //decrement the lives shown
             
-            if(lives != 0) player.revive(); //when you dont lose, you respawn 
+            if(lives != 0) {
+                bgMusic.playPlayerDeathFX(); //for the player death but can still play sound FX
+                player.revive();
+            } //when you dont lose, you respawn 
             
             else {
+                bgMusic.playGameOverFX(); //for the game over sound FX
                 timer.stopTimer();
                 inTheGame = false;
                 message = "Game Over. Man you suck, get better."; //idk why i said this

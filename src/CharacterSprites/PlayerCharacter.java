@@ -1,7 +1,11 @@
 package CharacterSprites;
 
-import java.awt.event.KeyEvent;
+import GameFunctions.Sound;
+import GameFunctions.Board;
 import static GameFunctions.Variables.*;
+
+import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -10,6 +14,7 @@ import java.awt.*;
 public class PlayerCharacter extends MovingObject {
 
     private Cannonball m;
+    private Sound shootFX;
 
     public PlayerCharacter (int x, int y) {
         super(x, y);
@@ -21,6 +26,10 @@ public class PlayerCharacter extends MovingObject {
         m.die();
     }
 
+    public void initializeFX(){
+        shootFX = Board.bgMusic; //do not have this in the constructor, or else you get a null pointer error
+    } 
+    
     public Cannonball getM() {
         return m;
     }
@@ -52,6 +61,7 @@ public class PlayerCharacter extends MovingObject {
                 m.alive = true;
                 m.x = this.x + PLAYER_WIDTH/2;
                 m.y = this.y;
+                shootFX.playShootFX(); //for the shooting sound FX
             }
         }
     }

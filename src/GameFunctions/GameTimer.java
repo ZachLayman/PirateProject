@@ -9,6 +9,8 @@ public class GameTimer {
     private double elaspedTime = 0;
     private int minutes = 0;
     private double seconds = 0.00;
+    private String minute_string;
+    private String seconds_string;
     Timer timer = new Timer(100, new ActionListener(){
          
         public void actionPerformed(ActionEvent e){
@@ -16,6 +18,8 @@ public class GameTimer {
             elaspedTime=elaspedTime+100;
             minutes = (int) (elaspedTime/60000) % 60;
             seconds = (elaspedTime/1000) % 60;
+            minute_string = String.format("%02d", minutes);
+            seconds_string = String.format("%1$, .1f", seconds);
         }
     }); 
         
@@ -23,12 +27,12 @@ public class GameTimer {
         timer.start();
     }
     
-    public int getMinutes(){
-        return minutes;
+    public String getMinutes(){
+        return minute_string;
     }
     
-    public double getSeconds(){
-        return seconds;
+    public String getSeconds(){
+        return seconds_string;
     }
     
     public void stopTimer(){

@@ -1,6 +1,7 @@
 package CustomPlayer;
 
 import GameFunctions.Main;
+import MainMenu.menuFXMLController;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -9,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
@@ -19,6 +21,13 @@ import javax.swing.event.*;
 //==========================================================
 public class CustomCharacter extends JFrame {
     // VARIABLES===================================
+    //Audio Player Stuff
+    File musicFile;
+    AudioInputStream musicInput;
+    Clip musicClip;
+    FloatControl musicVolume;
+    menuFXMLController controller = new menuFXMLController();
+
     // Buttons
     JButton menu, done;
     JButton bColorSail;
@@ -64,6 +73,19 @@ public class CustomCharacter extends JFrame {
     Art4Boat Art4Boat = new Art4Boat();
 
     public CustomCharacter() {
+        //Setting up and playing audio
+        musicFile = new File("Assets//pirate-ship-at-bay.wav");
+        try {
+            musicInput = AudioSystem.getAudioInputStream(musicFile);
+            musicClip = AudioSystem.getClip();
+            musicClip.open(musicInput);
+        } catch (Exception e) {
+            System.out.println("Music not working in Customization.");
+        }
+        musicVolume = (FloatControl) musicClip.getControl(FloatControl.Type.MASTER_GAIN);
+        musicVolume.setValue(20f * (float) Math.log10(controller.getVolume()));
+        musicClip.loop(Clip.LOOP_CONTINUOUSLY);
+
         // FRAME=====================================
         // design
         setSize(640, 480);
@@ -491,6 +513,7 @@ public class CustomCharacter extends JFrame {
     }
 
     public void startGame(){
+        musicClip.stop();
         new Main();
     }
 }
