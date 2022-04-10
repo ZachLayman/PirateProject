@@ -82,7 +82,7 @@ public class Art4Boat
             pirateFire = ImageIO.read(new File("Assets//Custom_Player//Projectiles//pirateCannon.png"));
             vikingFire = ImageIO.read(new File("Assets//Custom_Player//Projectiles//vikingArrow.png"));
             fantasyFire = ImageIO.read(new File("Assets//Custom_Player//Projectiles//fantasyFire.png"));
-            modernFire = ImageIO.read(new File("Assets//Custom_Player//Projectiles//modernRock.png"));
+            modernFire = ImageIO.read(new File("Assets//Custom_Player//Projectiles//modernPerserver.png"));
         } catch (IOException e) {
             System.out.println("Could not load ship weapons.");
         }
