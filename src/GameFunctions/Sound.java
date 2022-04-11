@@ -60,10 +60,10 @@ public class Sound extends Board {
         }
         shootAudioFX.setValue(20f * (float) Math.log10(audioVolume));
         numFrames = shootClip.getFrameLength();
-        shootClip.setLoopPoints(0, numFrames/20);
+        shootClip.setLoopPoints(0, numFrames/10);
 
         //Enemy Death FX
-        foeDieFX = new File("Assets//170144__timgormly__8-bit-explosion2.wav");
+        foeDieFX = new File("Assets//76971__michel88__painr.wav");
         try {
             AudioInputStream foeDie = AudioSystem.getAudioInputStream(foeDieFX);
             foeDieClip = AudioSystem.getClip();
@@ -104,7 +104,7 @@ public class Sound extends Board {
     public void playShootFX(){
         shootClip.loop(Clip.LOOP_CONTINUOUSLY);
 
-        timer.schedule(new StopShootFX(), 200);
+        timer.schedule(new StopShootFX(), 400);
     }
     
     class StopShootFX extends TimerTask{ 
@@ -117,7 +117,7 @@ public class Sound extends Board {
         
         foeDieClip.loop(Clip.LOOP_CONTINUOUSLY);
 
-        timer.schedule(new StopEnemyFX(), 492); //The sound FX is .492 seconds long
+        timer.schedule(new StopEnemyFX(), 624); //The sound FX is .624 seconds long
     }
     //Make it to where the FX stops after one loop rather than continuous loops with no end
     class StopEnemyFX extends TimerTask{
