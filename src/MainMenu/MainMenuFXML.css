@@ -69,4 +69,8 @@
         -fx-font-size: 20;
         -fx-font-family: Ponderosa;
     }
+    #leaderboard-text {
+        -fx-font-size: 25;
+        -fx-font-family: Ponderosa;
+    }
 }

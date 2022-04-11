@@ -18,7 +18,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label id="credits-text" alignment="TOP_LEFT" text="Product Leader:&#9;Duy H.&#10;Scrum Master:&#9;Zach L.&#10;Developers:&#9;Julia D.&#10;&#9;&#9;Jennifer O.&#10;&#9;&#9;Dominic S.&#10;&#9;&#9;Christopher W." GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+      <Label id="credits-text" alignment="TOP_LEFT" text="Product Leader:&#9;Duy H.&#10;&#10;Scrum Master:&#9;Zach L.&#10;&#10;Developers:&#9;Julia D.&#10;&#10;&#9;&#9;Jennifer O.&#10;&#10;&#9;&#9;Dominic S.&#10;&#10;&#9;&#9;Christopher W." GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
@@ -26,13 +26,21 @@
             <Insets right="10.0" />
          </padding>
          <GridPane.margin>
-            <Insets bottom="4.0" />
+            <Insets />
          </GridPane.margin>
       </Label>
-      <Button id="credits-button" mnemonicParsing="false" onAction="#switchToMainMenu" stylesheets="@MainMenuFXML.css" text="Return to Menu" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Button id="credits-button" mnemonicParsing="false" onAction="#switchToMainMenu" stylesheets="@MainMenuFXML.css" text="Return to Menu" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font size="18.0" />
          </font>
+         <GridPane.margin>
+            <Insets top="90.0" />
+         </GridPane.margin>
       </Button>
+      <Label id="main-title" text="Credits" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BASELINE">
+         <GridPane.margin>
+            <Insets top="27.0" />
+         </GridPane.margin>
+      </Label>
    </children>
 </GridPane>

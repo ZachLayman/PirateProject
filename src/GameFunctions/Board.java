@@ -7,17 +7,30 @@ import SquareBlockers.Guard;
 import CharacterSprites.Enemy;
 import CharacterSprites.EnemyMovement;
 import CharacterSprites.PlayerCharacter;
+import CustomPlayer.CustomCharacter;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+import GameFunctions.LeaderboardMap;
+
 import javax.swing.*;
 import java.awt.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +46,8 @@ public class Board extends JPanel implements Runnable {
     private int gameScore = 0;
     private GameTimer timer; //for timer
     private static Sound bgMusic; 
+    String playerName;
+    boolean highScore;
     
 Board() {
 
@@ -131,7 +146,7 @@ Board() {
 
         g.drawString("PIRATE PILLAGERS                        Lives: " + lives.toString(), BOARD_WIDTH - 340, 20); //Originally BW-370
         //had to edit oringinal placement to fit timer 
-        
+
 
         //g.setColor(Color.WHITE);
         //g.drawLine(0, GROUND, BOARD_WIDTH, GROUND);
@@ -145,6 +160,11 @@ Board() {
         for (Guard guard : guards) {
             guard.draw(g);
         }
+    }
+
+    void addToFrame(Component component, int x, int y, int width, int height) {
+        component.setBounds(x, y, width, height);
+        add(component);
     }
 
     private void animationCycle() {
@@ -240,6 +260,24 @@ Board() {
         //Display player time at end of game
         g.drawString("Your time: " + timer.getMinutes() + ":" + timer.getSeconds(), 
                 (BOARD_WIDTH - fonts.stringWidth(message))/2, (BOARD_HEIGHT/2) + 25);
+        saveHighScore();
+    }
+
+    private void saveHighScore () {
+            try {
+                Scanner fileIn = new Scanner(new File("Saves//savefile.txt"));
+                playerName = fileIn.nextLine();                
+            } catch (IOException e) {
+                System.out.println("Error saving name");
+            }
+            Map<String, Integer> unsortedMap = new HashMap<String, Integer>();
+            unsortedMap.put(playerName, gameScore);
+            LeaderboardMap.writeToFile(unsortedMap);
+            Map<String, Integer> tmpMap = new HashMap<String, Integer>();
+            LeaderboardMap.dumpFromFile(tmpMap);
+            Map<String, Integer> sortedMap = LeaderboardMap.sortByValue(tmpMap);
+            LeaderboardMap.clearFile();
+            LeaderboardMap.writeToFile(sortedMap);
     }
 
     private class Key extends KeyAdapter {
