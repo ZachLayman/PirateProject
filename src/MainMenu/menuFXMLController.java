@@ -5,6 +5,9 @@ import CustomPlayer.CustomCharacter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.swing.JPanel;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,6 +35,7 @@ public class menuFXMLController implements Initializable {
         scene = new Scene(root);
         root.getStylesheets().add(getClass().
                 getResource("MainMenuFXML.css").toExternalForm());
+        stage.setTitle("Pirate Pillagers");
         stage.setScene(scene);
         stage.show();
     }
@@ -43,6 +47,7 @@ public class menuFXMLController implements Initializable {
         scene = new Scene(root);
         root.getStylesheets().add(getClass().
                 getResource("MainMenuFXML.css").toExternalForm());
+        stage.setTitle("Pirate Pillagers");
         stage.setScene(scene);
         stage.show();
     }
@@ -54,6 +59,7 @@ public class menuFXMLController implements Initializable {
         scene = new Scene(root);
         root.getStylesheets().add(getClass().
                 getResource("MainMenuFXML.css").toExternalForm());
+        stage.setTitle("Pirate Pillagers");
         stage.setScene(scene);
         stage.show();
     }
@@ -65,6 +71,7 @@ public class menuFXMLController implements Initializable {
         scene = new Scene(root);
         root.getStylesheets().add(getClass().
                 getResource("MainMenuFXML.css").toExternalForm());
+        stage.setTitle("Pirate Pillagers");
         stage.setScene(scene);
         stage.show();
     }
@@ -74,7 +81,7 @@ public class menuFXMLController implements Initializable {
         new CustomCharacter();
         //new Main(); //Uncomment this line and comment new CustomCharacter to take out customization
     }
-    
+
     @FXML
     private Label label;
     
