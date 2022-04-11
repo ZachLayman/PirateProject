@@ -1,6 +1,7 @@
 package CharacterSprites;
 
 import GameFunctions.Board;
+import GameFunctions.Sound;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ public class EnemyMovement {
     private List<Enemy> enemies;
     private Integer numberOfEnemies;
     private int enemySpeed;
+    private Sound enemyFX;
 
     public List<Enemy> getEnemies() {
         return enemies;
@@ -26,6 +28,8 @@ public class EnemyMovement {
 
     public void decreaseNumberOfEnemies() {
         numberOfEnemies--;
+        enemyFX = Board.bgMusic;
+        enemyFX.playEnemyDeathFX(); //for enemy death sound FX
     }
 
     public EnemyMovement() {

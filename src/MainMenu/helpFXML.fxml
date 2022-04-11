@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Slider?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" styleClass="grid" stylesheets="@MainMenuFXML.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu.menuFXMLController">
   <columnConstraints>
@@ -32,5 +33,7 @@
             <Insets bottom="21.0" />
          </padding>
       </Label>
+      <Label id="credits-text" text="Volume: " GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+       <Slider fx:id="volumeSlider" GridPane.halignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3" majorTickUnit="10.0" minorTickCount="10" orientation="HORIZONTAL" prefHeight="14.0" prefWidth="336.0" showTickLabels="true" showTickMarks="true" />
    </children>
 </GridPane>
