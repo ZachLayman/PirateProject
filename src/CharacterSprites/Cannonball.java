@@ -12,7 +12,7 @@ public class Cannonball extends MovingObject {
 
     Cannonball(int x, int y) {
         super(x, y);
-        loadImage("Assets//cannonball.png");
+        loadImage("Saves//userProjectile.png");
         width = CANNON_WIDTH;
         height = CANNON_HEIGHT;
         dy =- CANNON_SPEED;

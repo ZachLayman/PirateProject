@@ -21,11 +21,17 @@
   </rowConstraints>
    <children>
       <Button id="credits-button" mnemonicParsing="false" onAction="#switchToMainMenu" stylesheets="@MainMenuFXML.css" text="Return to Menu" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-      <Label id="main-title" text="Controls" textAlignment="CENTER" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" />
-      <Label id="credits-text" text="Use LEFT and RIGHT ARROWS to move! Watch out for the edges!&#10;&#10;Press SPACEBAR to shoot! But only one cannon ball at a time...&#10;" textAlignment="JUSTIFY" wrapText="true" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Label id="main-title" text="Controls" textAlignment="CENTER" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <padding>
+            <Insets top="50.0" />
+         </padding></Label>
+      <Label id="credits-text" text="Use LEFT and RIGHT ARROWS to move! Watch out for the edges!&#10;&#10;Press SPACEBAR to shoot! But only one cannon ball at a time.&#10;&#10;You get 10 points for each enemy you defeat!&#10;" textAlignment="JUSTIFY" wrapText="true" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets left="75.0" right="75.0" />
          </GridPane.margin>
+         <padding>
+            <Insets bottom="21.0" />
+         </padding>
       </Label>
       <Label id="credits-text" text="Volume: " GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
        <Slider fx:id="volumeSlider" GridPane.halignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3" majorTickUnit="10.0" minorTickCount="10" orientation="HORIZONTAL" prefHeight="14.0" prefWidth="336.0" showTickLabels="true" showTickMarks="true" />

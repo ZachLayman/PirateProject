@@ -9,7 +9,14 @@ import javax.imageio.ImageIO;
 //   loads all the various images that a user can choice
 //   between to design their ship
 //==========================================================
-public class Art4Boat {
+public class Art4Boat 
+{
+    //images for different projectiles
+    BufferedImage pirateFire;
+    BufferedImage vikingFire;
+    BufferedImage fantasyFire;
+    BufferedImage modernFire;
+    
     // arrays of images
     BufferedImage[] shadowDesigns = new BufferedImage[4];
     BufferedImage shipDesigns[] = new BufferedImage[4];
@@ -43,7 +50,7 @@ public class Art4Boat {
             sailDesigns[1] = ImageIO.read(new File("Assets//Custom_Player//Sails//ComingSoon.png"));
             sailDesigns[2] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateFlowerSail.png"));
             sailDesigns[3] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateCelestialSail.png"));
-            sailDesigns[4] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateSolidSail2.png")); 
+            sailDesigns[4] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateSolidSail.png")); 
             
 
             // load Viking Ship Sail Designs
@@ -68,6 +75,16 @@ public class Art4Boat {
             sailDesigns[19] = ImageIO.read(new File("Assets//Custom_Player//Sails//ComingSoon.png"));
         } catch (IOException e) {
             System.out.println("Could not load sail image.");
+        }
+
+        // load projectiles per ship
+        try {
+            pirateFire = ImageIO.read(new File("Assets//Custom_Player//Projectiles//pirateCannon.png"));
+            vikingFire = ImageIO.read(new File("Assets//Custom_Player//Projectiles//vikingArrow.png"));
+            fantasyFire = ImageIO.read(new File("Assets//Custom_Player//Projectiles//fantasyFire.png"));
+            modernFire = ImageIO.read(new File("Assets//Custom_Player//Projectiles//modernPerserver.png"));
+        } catch (IOException e) {
+            System.out.println("Could not load ship weapons.");
         }
     }
 }
