@@ -28,7 +28,7 @@ public class Art4Boat
             shadowDesigns[0] = ImageIO.read(new File("Assets//Custom_Player//Ships//PirateShadow.png"));
             shadowDesigns[1] = ImageIO.read(new File("Assets//Custom_Player//Ships//VikingShadow.png"));
             shadowDesigns[2] = ImageIO.read(new File("Assets//Custom_Player//Ships//ComingSoon.png"));
-            shadowDesigns[3] = ImageIO.read(new File("Assets//Custom_Player//Ships//ComingSoon.png"));
+            shadowDesigns[3] = ImageIO.read(new File("Assets//Custom_Player//Ships//ModernShadow.png"));
         } catch (IOException e) {
             System.out.println("Could not load shadow image.");
         }
@@ -38,7 +38,7 @@ public class Art4Boat
             shipDesigns[0] = ImageIO.read(new File("Assets//Custom_Player//Ships//PirateShip.png"));
             shipDesigns[1] = ImageIO.read(new File("Assets//Custom_Player//Ships//VikingBoat.png"));
             shipDesigns[2] = ImageIO.read(new File("Assets//Custom_Player//Ships//ComingSoon.png"));
-            shipDesigns[3] = ImageIO.read(new File("Assets//Custom_Player//Ships//ComingSoon.png"));
+            shipDesigns[3] = ImageIO.read(new File("Assets//Custom_Player//Ships//ModernBoat.png"));
         } catch (IOException e) {
             System.out.println("Could not load ship image.");
         }
@@ -47,7 +47,7 @@ public class Art4Boat
         try {
             // load Pirate Ship Sail Designs
             sailDesigns[0] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateSkullSail.png"));
-            sailDesigns[1] = ImageIO.read(new File("Assets//Custom_Player//Sails//ComingSoon.png"));
+            sailDesigns[1] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateCrusadeSail.png"));
             sailDesigns[2] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateFlowerSail.png"));
             sailDesigns[3] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateCelestialSail.png"));
             sailDesigns[4] = ImageIO.read(new File("Assets//Custom_Player//Sails//PirateSolidSail.png")); 
@@ -57,7 +57,7 @@ public class Art4Boat
             sailDesigns[5] = ImageIO.read(new File("Assets//Custom_Player//Sails//VikingDragon.png"));
             sailDesigns[6] = ImageIO.read(new File("Assets//Custom_Player//Sails//VikingStriped.png"));
             sailDesigns[7] = ImageIO.read(new File("Assets//Custom_Player//Sails//VikingTriforce.png"));
-            sailDesigns[8] = ImageIO.read(new File("Assets//Custom_Player//Sails//ComingSoon.png"));
+            sailDesigns[8] = ImageIO.read(new File("Assets//Custom_Player//Sails//VikingRunes.png"));
             sailDesigns[9] = ImageIO.read(new File("Assets//Custom_Player//Sails//VikingSolid.png"));
 
             // load Fantasy Ship Sail Designs
@@ -68,11 +68,11 @@ public class Art4Boat
             sailDesigns[14] = ImageIO.read(new File("Assets//Custom_Player//Sails//ComingSoon.png"));
 
             // load Modern Ship Sail Designs
-            sailDesigns[15] = ImageIO.read(new File("Assets//Custom_Player//Sails//ComingSoon.png"));
-            sailDesigns[16] = ImageIO.read(new File("Assets//Custom_Player//Sails//ComingSoon.png"));
-            sailDesigns[17] = ImageIO.read(new File("Assets//Custom_Player//Sails//ComingSoon.png"));
+            sailDesigns[15] = ImageIO.read(new File("Assets//Custom_Player//Sails//Modern70s.png"));
+            sailDesigns[16] = ImageIO.read(new File("Assets//Custom_Player//Sails//ModernUSA.png"));
+            sailDesigns[17] = ImageIO.read(new File("Assets//Custom_Player//Sails//ModernFire.png"));
             sailDesigns[18] = ImageIO.read(new File("Assets//Custom_Player//Sails//ComingSoon.png"));
-            sailDesigns[19] = ImageIO.read(new File("Assets//Custom_Player//Sails//ComingSoon.png"));
+            sailDesigns[19] = ImageIO.read(new File("Assets//Custom_Player//Sails//ModernSolid.png"));
         } catch (IOException e) {
             System.out.println("Could not load sail image.");
         }
