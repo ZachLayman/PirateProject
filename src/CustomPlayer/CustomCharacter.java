@@ -86,7 +86,7 @@ public class CustomCharacter extends JFrame
         lUserName = new JLabel("Captain Name", JLabel.CENTER);
         lUserShip = new JLabel("Ship Name", JLabel.CENTER);
         lShipDesign = new JLabel("Ship Design", JLabel.CENTER);
-        lSailDesign = new JLabel("Sail Design", JLabel.CENTER);
+        lSailDesign = new JLabel("Style Design", JLabel.CENTER);
 
         // set font for label style
         lUserName.setFont(new Font("Minecraft", Font.BOLD, 15));
@@ -141,8 +141,8 @@ public class CustomCharacter extends JFrame
 
         // TEXT FIELDS============================
         // initialize text fields
-        tUserName = new JTextField("type...");
-        tUserShip = new JTextField("...here");
+        tUserName = new JTextField("");
+        tUserShip = new JTextField("");
 
         // set Text field style font
         tUserName.setFont(new Font("Minecraft", Font.TRUETYPE_FONT, 15));
@@ -185,9 +185,9 @@ public class CustomCharacter extends JFrame
 
         // set file paths for solid sail images
         pSailPath = "Assets//Custom_Player//Sails//PirateSolidSail.png";
-        vSailPath = "Assets//Custom_Player//Sails//ComingSoon.png";
+        vSailPath = "Assets//Custom_Player//Sails//VikingSolid.png";
         fSailPath = "Assets//Custom_Player//Sails//ComingSoon.png";
-        mSailPath = "Assets//Custom_Player//Sails//ComingSoon.png";
+        mSailPath = "Assets//Custom_Player//Sails//ModernSolid.png";
 
         // initialize layered pane
         boatCanvas = new JLayeredPane();
